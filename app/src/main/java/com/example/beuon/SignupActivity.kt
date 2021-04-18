@@ -1,4 +1,4 @@
-package com.kotlindroider.devaj
+package com.example.beuon
 
 import android.app.ProgressDialog
 import android.content.Intent
@@ -23,7 +23,7 @@ class SignupActivity : AppCompatActivity() {
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(com.kotlindroider.devaj.R.layout.activity_signup)
+        setContentView(com.example.beuon.R.layout.activity_signup)
 
         _nameText = findViewById(R.id.input_name) as EditText
         _addressText = findViewById(R.id.input_address) as EditText
@@ -42,7 +42,7 @@ class SignupActivity : AppCompatActivity() {
             val intent = Intent(applicationContext, LoginActivity::class.java)
             startActivity(intent)
             finish()
-            overridePendingTransition(com.kotlindroider.devaj.R.anim.push_left_in, com.kotlindroider.devaj.R.anim.push_left_out)
+            overridePendingTransition(com.example.beuon.R.anim.push_left_in, com.example.beuon.R.anim.push_left_out)
         }
     }
 
@@ -57,7 +57,7 @@ class SignupActivity : AppCompatActivity() {
         _signupButton!!.isEnabled = false
 
         val progressDialog = ProgressDialog(this@SignupActivity,
-                com.kotlindroider.devaj.R.style.AppTheme_Dark_Dialog)
+                com.example.beuon.R.style.AppTheme_Dark_Dialog)
         progressDialog.isIndeterminate = true
         progressDialog.setMessage("Creating Account...")
         progressDialog.show()

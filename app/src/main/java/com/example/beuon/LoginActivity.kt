@@ -1,4 +1,4 @@
-package com.kotlindroider.devaj
+package com.example.beuon
 
 import android.app.Activity
 import android.app.ProgressDialog
@@ -20,7 +20,7 @@ class LoginActivity : AppCompatActivity() {
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(com.kotlindroider.devaj.R.layout.activity_login)
+        setContentView(com.example.beuon.R.layout.activity_login)
 
         _loginButton = findViewById(R.id.btn_login) as Button
         _signupLink = findViewById(R.id.link_signup) as TextView
@@ -47,7 +47,7 @@ class LoginActivity : AppCompatActivity() {
         _loginButton!!.isEnabled = false
 
         val progressDialog = ProgressDialog(this@LoginActivity,
-                com.kotlindroider.devaj.R.style.AppTheme_Dark_Dialog)
+                com.example.beuon.R.style.AppTheme_Dark_Dialog)
         progressDialog.isIndeterminate = true
         progressDialog.setMessage("Login...")
         progressDialog.show()
