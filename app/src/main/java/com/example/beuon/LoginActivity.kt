@@ -4,16 +4,16 @@ import android.app.Activity
 import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import android.support.v7.app.AppCompatActivity;
 
 class LoginActivity : AppCompatActivity() {
 
-    var _emailText: EditText? = null
+    var _usernameText: EditText? = null
     var _passwordText: EditText? = null
     var _loginButton: Button? = null
     var _signupLink: TextView? = null
@@ -25,7 +25,7 @@ class LoginActivity : AppCompatActivity() {
         _loginButton = findViewById(R.id.btn_login) as Button
         _signupLink = findViewById(R.id.link_signup) as TextView
         _passwordText = findViewById(R.id.input_password) as EditText
-        _emailText = findViewById(R.id.input_email) as EditText
+        _usernameText = findViewById(R.id.input_email) as EditText
         _loginButton!!.setOnClickListener { login() }
 
         _signupLink!!.setOnClickListener {
@@ -52,16 +52,13 @@ class LoginActivity : AppCompatActivity() {
         progressDialog.setMessage("Login...")
         progressDialog.show()
 
-        val email = _emailText!!.text.toString()
+        val username = _usernameText!!.text.toString()
         val password = _passwordText!!.text.toString()
-
-        // TODO: Implement your own authentication logic here.
 
         android.os.Handler().postDelayed(
                 {
                     // On complete call either onLoginSuccess or onLoginFailed
-                    onLoginSuccess()
-                    // onLoginFailed();
+                    onLoginSuccess(username)
                     progressDialog.dismiss()
                 }, 3000)
     }
@@ -70,42 +67,38 @@ class LoginActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == REQUEST_SIGNUP) {
             if (resultCode == Activity.RESULT_OK) {
-
-                // TODO: Implement successful signup logic here
-                // By default we just finish the Activity and log them in automatically
                 this.finish()
             }
         }
     }
 
     override fun onBackPressed() {
-        // Disable going back to the MainActivity
         moveTaskToBack(true)
     }
 
-    fun onLoginSuccess() {
+    fun onLoginSuccess(username : String) {
         _loginButton!!.isEnabled = true
-//        finish()
-        startActivity(Intent(this, MainActivity::class.java))
+        val i = Intent(this, MainActivity::class.java)
+        i.putExtra("username", username)
+        startActivity(i)
     }
 
     fun onLoginFailed() {
         Toast.makeText(baseContext, "Login failed", Toast.LENGTH_LONG).show()
-
         _loginButton!!.isEnabled = true
     }
 
     fun validate(): Boolean {
         var valid = true
 
-        val email = _emailText!!.text.toString()
+        val username = _usernameText!!.text.toString()
         val password = _passwordText!!.text.toString()
 
-        if (email.isEmpty()) {
-            _emailText!!.error = "Please enter username"
+        if (username.isEmpty()) {
+            _usernameText!!.error = "Please Enter Username"
             valid = false
         } else {
-            _emailText!!.error = null
+            _usernameText!!.error = null
         }
 
         if (password.isEmpty() || password.length < 4 || password.length > 10) {
