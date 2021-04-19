@@ -8,9 +8,8 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".roleMenu.TutorMainActivity"
-            android:label="@string/title_activity_tutor_main"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:name=".roleMenu.ui.TutorMainActivity"
+            android:label="@string/title_activity_tutor_main"></activity>
         <activity
             android:name=".LoginActivity"
             android:label="@string/app_name"

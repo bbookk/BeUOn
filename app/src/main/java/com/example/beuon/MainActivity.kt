@@ -1,38 +1,48 @@
 package com.example.beuon
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.TextView
+import com.example.beuon.roleMenu.ui.TutorMainActivity
 
 
 class MainActivity : AppCompatActivity() {
 
     var _usernameText: TextView? = null
-    private var roleUser: String = ""
+    private var username : String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(com.example.beuon.R.layout.activity_main)
-        roleUser = this.getRoleUser()
+        this.getRoleUser()
     }
 
     fun getUsername() : String {
         val i = intent
-        val username = i.getStringExtra("username")
+        username = i.getStringExtra("username")!!
         _usernameText = findViewById(R.id.text_username) as TextView
         _usernameText!!.setText("Welcome "+username.toString())
         return username.toString()
     }
 
-    private fun getRoleUser() : String{
+    private fun getRoleUser(){
         if(getUsername().equals("studenttest")){
-            return "student"
+            val i = Intent(this, MainActivity::class.java)
+            i.putExtra("username", username)
+            startActivity(i)
         }else if(getUsername().equals("tutortest")){
-            return "tutor"
+            val i = Intent(this, TutorMainActivity::class.java)
+            i.putExtra("username", username)
+            startActivity(i)
         }else if(getUsername().equals("parenttest")){
-            return "parents"
+            val i = Intent(this, MainActivity::class.java)
+            i.putExtra("username", username)
+            startActivity(i)
         }
-        return ""
+        val i = Intent(this, MainActivity::class.java)
+        i.putExtra("username", username)
+        startActivity(i)
     }
 
 }
