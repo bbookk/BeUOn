@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/white"
+    android:background="@color/bg_color"
     android:textColor="@color/black"
     android:fitsSystemWindows="true">
 
@@ -16,7 +16,7 @@
 
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="100dp"
+            android:layout_height="300dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="12dp"
             android:src="@drawable/beuon" />
@@ -26,9 +26,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:gravity="center_horizontal"
-            android:text="Be U On"
+            android:text="Welcome to Be U On"
             android:textAllCaps="true"
-            android:textColor="@color/black"
+            android:textSize="60px"
+            android:textColor="@android:color/darker_gray"
             android:textStyle="bold" />
 
         <!--  Email Label -->
@@ -71,7 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
             android:layout_marginTop="24dp"
-            android:backgroundTint="@android:color/holo_green_dark"
+            android:backgroundTint="@android:color/holo_green_light"
             android:padding="12dp"
             android:text="Login" />
 

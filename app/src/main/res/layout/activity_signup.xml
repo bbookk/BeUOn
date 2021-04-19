@@ -9,6 +9,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingLeft="24dp"
+        android:background="@color/white"
         android:paddingRight="24dp"
         android:paddingTop="56dp">
 
@@ -17,7 +18,7 @@
             android:layout_height="100dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="12dp"
-            android:src="@drawable/kotlindroider" />
+            android:src="@drawable/beuon" />
 
 
         <TextView
@@ -25,9 +26,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:gravity="center_horizontal"
-            android:text="KotlinDroider"
+            android:text="Be U On"
             android:textAllCaps="true"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textStyle="bold" />
         <!-- Name Label -->
         <android.support.design.widget.TextInputLayout
