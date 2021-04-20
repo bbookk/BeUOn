@@ -27,22 +27,23 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getRoleUser(){
-        if(getUsername().equals("studenttest")){
-            val i = Intent(this, MainActivity::class.java)
-            i.putExtra("username", username)
-            startActivity(i)
-        }else if(getUsername().equals("tutortest")){
+//        if(getUsername().equals("studenttest")){
+//            val i = Intent(this, MainActivity::class.java)
+//            i.putExtra("username", username)
+//            startActivity(i)
+//        }else if(getUsername().equals("tutortest")){
             val i = Intent(this, TutorMainActivity::class.java)
             i.putExtra("username", username)
             startActivity(i)
-        }else if(getUsername().equals("parenttest")){
-            val i = Intent(this, MainActivity::class.java)
-            i.putExtra("username", username)
-            startActivity(i)
-        }
-        val i = Intent(this, MainActivity::class.java)
-        i.putExtra("username", username)
-        startActivity(i)
+//        }else if(getUsername().equals("parenttest")){
+//            val i = Intent(this, MainActivity::class.java)
+//            i.putExtra("username", username)
+//            startActivity(i)
+//        }else {
+//            val i = Intent(this, MainActivity::class.java)
+//            i.putExtra("username", username)
+//            startActivity(i)
+//        }
     }
 
 }

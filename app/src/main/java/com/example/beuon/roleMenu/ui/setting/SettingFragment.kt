@@ -1,4 +1,4 @@
-package com.example.beuon.roleMenu.ui.profile
+package com.example.beuon.roleMenu.ui.setting
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProvider
 import com.example.beuon.R
 
-class HomeFragment : Fragment() {
+class SettingFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
+    private lateinit var notificationsViewModel: SettingViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-                ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(HomeViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_profile, container, false)
-        val textView: TextView = root.findViewById(R.id.text_home)
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
+        notificationsViewModel =
+                ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(SettingViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_setting, container, false)
+        val textView: TextView = root.findViewById(R.id.text_notifications)
+        notificationsViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root

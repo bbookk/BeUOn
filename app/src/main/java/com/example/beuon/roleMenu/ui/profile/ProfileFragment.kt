@@ -1,4 +1,4 @@
-package com.example.beuon.roleMenu.ui.courses
+package com.example.beuon.roleMenu.ui.profile
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProvider
 import com.example.beuon.R
 
-class DashboardFragment : Fragment() {
+class ProfileFragment : Fragment() {
 
-    private lateinit var dashboardViewModel: DashboardViewModel
+    private lateinit var homeViewModel: ProfileViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        dashboardViewModel =
-                ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(DashboardViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_courses, container, false)
-        val textView: TextView = root.findViewById(R.id.text_dashboard)
-        dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
+        homeViewModel =
+                ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(ProfileViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_profile, container, false)
+        val textView: TextView = root.findViewById(R.id.text_home)
+        homeViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root
