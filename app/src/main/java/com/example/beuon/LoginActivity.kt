@@ -23,17 +23,9 @@ class LoginActivity : AppCompatActivity() {
         setContentView(com.example.beuon.R.layout.activity_login)
 
         _loginButton = findViewById(R.id.btn_login) as Button
-        _signupLink = findViewById(R.id.link_signup) as TextView
         _passwordText = findViewById(R.id.input_password) as EditText
         _usernameText = findViewById(R.id.input_email) as EditText
         _loginButton!!.setOnClickListener { login() }
-
-        _signupLink!!.setOnClickListener {
-            // Start the Signup activity
-            val intent = Intent(applicationContext, CourseActivity::class.java)
-            startActivityForResult(intent, REQUEST_SIGNUP)
-            finish()
-        }
     }
 
     fun login() {
@@ -61,15 +53,6 @@ class LoginActivity : AppCompatActivity() {
                     onLoginSuccess(username)
                     progressDialog.dismiss()
                 }, 3000)
-    }
-
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == REQUEST_SIGNUP) {
-            if (resultCode == Activity.RESULT_OK) {
-                this.finish()
-            }
-        }
     }
 
     override fun onBackPressed() {
@@ -113,6 +96,5 @@ class LoginActivity : AppCompatActivity() {
 
     companion object {
         private val TAG = "LoginActivity"
-        private val REQUEST_SIGNUP = 0
     }
 }
