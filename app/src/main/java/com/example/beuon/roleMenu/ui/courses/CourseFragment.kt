@@ -21,8 +21,6 @@ import java.util.concurrent.TimeUnit
 class CourseFragment : Fragment() {
 
     private lateinit var dashboardViewModel: CourseViewModel
-
-    var srcPath = "http://videocdn.bodybuilding.com/video/mp4/62000/62792m.mp4"
     lateinit var root : View
 
     override fun onCreateView(
