@@ -1,22 +1,332 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".roleMenu.ui.courses.CourseFragment">
+    android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/text_dashboard"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</android.support.constraint.ConstraintLayout>
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:layout_marginTop="0dp"
+        android:orientation="vertical"
+        tools:context=".roleMenu.ui.courses.CourseFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/label_username"
+                    android:layout_width="345dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/kanit"
+                    android:gravity="start"
+                    android:text="Hello "
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:id="@+id/shape_layout"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/circular_bordershape">
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/noti_card"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        app:cardCornerRadius="10dp">
+
+                        <ImageView
+                            android:id="@+id/noti_icon"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/notification"
+                            android:scaleType="centerCrop" />
+                    </android.support.v7.widget.CardView>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/text_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/kanit"
+                android:gravity="start"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/search_text"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/rec_bordershape"
+                android:fontFamily="@font/kanit"
+                android:hint="Search by title"
+                android:padding="5dp"
+                android:textSize="8pt"
+                android:textStyle="italic"></EditText>
+
+            <RelativeLayout
+                android:id="@+id/shape_rec"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/rec_bordershape">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/search_card"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    app:cardCornerRadius="10dp">
+
+                    <ImageButton
+                        android:id="@+id/search_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/search_icon" />
+                </android.support.v7.widget.CardView>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/create_class_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/create_class_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:background="@drawable/rec_btn"
+                android:fontFamily="@font/kanit"
+                android:padding="10dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/search_icon"
+                android:text="Create Class" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/video_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/rec_card"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+            <FrameLayout
+                android:id="@+id/video_frame"
+                android:layout_width="fill_parent"
+                android:layout_height="480px"
+                android:background="#000">
+
+                <VideoView
+                    android:id="@+id/course_video"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/text_time"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:fontFamily="@font/kanit"
+                    android:textAllCaps="true"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="8pt"
+                    android:textStyle="bold" />
+                />
+
+                <TextView
+                    android:id="@+id/text_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:fontFamily="@font/kanit"
+                    android:gravity="right"
+                    android:text="test"
+                    android:textAllCaps="true"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="10pt"
+                    android:textStyle="bold" />
+                />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/text_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:fontFamily="@font/kanit"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="10pt"
+                android:textStyle="bold" />
+            />
+
+            <TextView
+                android:id="@+id/text_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:fontFamily="@font/kanit"
+                android:textAllCaps="true"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="7pt"
+                android:textStyle="bold" />
+            />
+
+            <TextView
+                android:id="@+id/text_tutor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:fontFamily="@font/kanit"
+                android:textAllCaps="true"
+                android:text="By Tutortest"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="5pt"
+                android:textStyle="bold" />
+            />
+        </LinearLayout>
+
+<!--        <LinearLayout-->
+<!--            android:id="@+id/video_layout2"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="10dp"-->
+<!--            android:background="@drawable/rec_card"-->
+<!--            android:orientation="vertical"-->
+<!--            android:padding="15dp">-->
+
+<!--            <FrameLayout-->
+<!--                android:id="@+id/video_frame2"-->
+<!--                android:layout_width="fill_parent"-->
+<!--                android:layout_height="480px"-->
+<!--                android:background="#000">-->
+
+<!--                <VideoView-->
+<!--                    android:id="@+id/course_video2"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="300dp"-->
+<!--                    android:layout_alignParentLeft="true"-->
+<!--                    android:layout_centerVertical="true" />-->
+<!--            </FrameLayout>-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content">-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/text_time2"-->
+<!--                    android:layout_width="200dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="bottom"-->
+<!--                    android:fontFamily="@font/kanit"-->
+<!--                    android:textAllCaps="true"-->
+<!--                    android:text="20 Apr"-->
+<!--                    android:textColor="@android:color/darker_gray"-->
+<!--                    android:textSize="8pt"-->
+<!--                    android:textStyle="bold" />-->
+<!--                />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/text_price2"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="bottom"-->
+<!--                    android:fontFamily="@font/kanit"-->
+<!--                    android:gravity="right"-->
+<!--                    android:text="test"-->
+<!--                    android:textAllCaps="true"-->
+<!--                    android:textColor="@android:color/holo_blue_dark"-->
+<!--                    android:textSize="10pt"-->
+<!--                    android:textStyle="bold" />-->
+<!--                />-->
+<!--            </LinearLayout>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/text_title2"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="bottom"-->
+<!--                android:fontFamily="@font/kanit"-->
+<!--                android:textAllCaps="true"-->
+<!--                android:text="JavaScript"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="10pt"-->
+<!--                android:textStyle="bold" />-->
+<!--            />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/text_desc2"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="bottom"-->
+<!--                android:fontFamily="@font/kanit"-->
+<!--                android:textAllCaps="true"-->
+<!--                android:text="Prepare for install js"-->
+<!--                android:textColor="@android:color/darker_gray"-->
+<!--                android:textSize="7pt"-->
+<!--                android:textStyle="bold" />-->
+<!--            />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/text_tutor2"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="bottom"-->
+<!--                android:fontFamily="@font/kanit"-->
+<!--                android:textAllCaps="true"-->
+<!--                android:text="By Tutortest"-->
+<!--                android:textColor="@android:color/darker_gray"-->
+<!--                android:textSize="5pt"-->
+<!--                android:textStyle="bold" />-->
+<!--            />-->
+<!--        </LinearLayout>-->
+    </LinearLayout>
+
+</ScrollView>
