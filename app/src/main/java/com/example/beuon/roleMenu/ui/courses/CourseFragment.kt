@@ -14,7 +14,7 @@ import android.widget.MediaController
 import android.widget.TextView
 import android.widget.VideoView
 import com.example.beuon.R
-import com.example.beuon.SignupActivity
+import com.example.beuon.CourseActivity
 import java.util.concurrent.TimeUnit
 
 
@@ -41,7 +41,7 @@ class CourseFragment : Fragment() {
 
         val createBtn : Button = root.findViewById(R.id.create_class_btn)
         createBtn.setOnClickListener {
-            val intent = Intent(activity, SignupActivity::class.java)
+            val intent = Intent(activity, CourseActivity::class.java)
             startActivity(intent)
         }
         return root

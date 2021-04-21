@@ -28,7 +28,7 @@
             android:name=".MainActivity"
             android:theme="@style/AppTheme.Dark" />
         <activity
-            android:name=".SignupActivity"
+            android:name=".CourseActivity"
             android:theme="@style/AppTheme.Dark" />
     </application>
 

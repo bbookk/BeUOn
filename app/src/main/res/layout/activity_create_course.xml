@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="24dp"
+        android:background="@color/bg_color"
+        android:paddingRight="24dp"
+        android:paddingTop="56dp">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="12dp"
+            android:src="@drawable/beuon" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:text="Create Course"
+            android:fontFamily="@font/kanit"
+            android:textAllCaps="true"
+            android:textSize="12pt"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rec_card"
+            android:layout_marginTop="10dp"
+            android:padding="8dp">
+
+            <EditText
+                android:id="@+id/input_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Title Name"
+                android:padding="0dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/kanit"
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rec_card"
+            android:padding="8dp"
+            android:layout_marginTop="10dp">
+
+            <EditText
+                android:id="@+id/input_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Short Deacription"
+                android:padding="0dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/kanit"
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rec_card"
+            android:padding="8dp"
+            android:layout_marginTop="10dp">
+
+            <EditText
+                android:id="@+id/input_place"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Place"
+                android:padding="0dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/kanit"
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rec_card"
+            android:padding="8dp"
+            android:layout_marginTop="10dp">
+
+            <EditText
+                android:id="@+id/input_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Date and Time"
+                android:padding="0dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/kanit"
+                android:inputType="date" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rec_card"
+            android:padding="8dp"
+            android:layout_marginTop="10dp">
+
+            <EditText
+                android:id="@+id/input_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Price per hour"
+                android:textColor="@color/black"
+                android:fontFamily="@font/kanit"
+                android:padding="0dp"
+                android:inputType="number" />
+        </android.support.design.widget.TextInputLayout>
+
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:padding="10dp"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical">
+            <RadioButton android:id="@+id/radio_onsite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="On-Site"
+                android:textColor="@color/black"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/kanit"
+                android:onClick="onRadioButtonClicked"/>
+            <RadioButton android:id="@+id/radio_online"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/kanit"
+                android:text="Online (By Zoom)"
+                android:onClick="onRadioButtonClicked"/>
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/create_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:fontFamily="@font/kanit"
+            android:layout_marginTop="15dp"
+            android:padding="12dp"
+            android:background="@drawable/rec_btn"
+            android:text="Create Course" />
+
+    </LinearLayout>
+</ScrollView>
