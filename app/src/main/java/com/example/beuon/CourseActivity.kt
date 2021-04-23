@@ -6,11 +6,14 @@ import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.support.v4.app.FragmentTransaction
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import android.widget.*
+import com.example.beuon.model.CourseModel
 import com.example.beuon.roleMenu.ui.courses.CourseFragment
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -73,7 +76,7 @@ class CourseActivity : AppCompatActivity() {
 
         _createBtn!!.isEnabled = false
 
-        if(validate()){
+//        if(validate()){
 
         val progressDialog = ProgressDialog(this@CourseActivity,
                 com.example.beuon.R.style.AppTheme_Dark_Dialog)
@@ -87,24 +90,31 @@ class CourseActivity : AppCompatActivity() {
         val price = _priceText!!.text.toString()
         val dateTime = _dateText!!.text.toString()
 
+            var data = CourseModel()
+            data.name = name
+            data.desc = desc
+            data.place = place
+            data.price = price
+            data.dateTime = dateTime
+
         android.os.Handler().postDelayed(
                 {
-                    onCreateCourseSuccess()
+                    onCreateCourseSuccess(data)
                     progressDialog.dismiss()
                 }, 3000)
-        }
+//        }
     }
 
-
-    fun onCreateCourseSuccess() {
-        _createBtn!!.isEnabled = true
-        setResult(Activity.RESULT_OK, null)
+    fun onCreateCourseSuccess(data : CourseModel) {
         val bundle = Bundle()
-        bundle.putString("data", "Data you want to send")
-        val obj = CourseFragment()
-        obj.setArguments(bundle)
-//        startActivity(Intent(getApplicationContext(), CourseFragment::class.java))
-//        finish()
+        val mapper = jacksonObjectMapper()
+        val dataString = mapper.writeValueAsString(data)
+        bundle.putString("data", dataString) // data that you want to send
+        val fragment = CourseFragment() // Fragment that you want to call
+        fragment.setArguments(bundle)
+        val fts: FragmentTransaction = supportFragmentManager.beginTransaction()
+        fts.replace(R.id.content_id, fragment)
+        fts.commit()
     }
 
 

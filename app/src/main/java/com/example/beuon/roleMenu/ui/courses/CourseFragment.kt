@@ -15,6 +15,8 @@ import android.widget.TextView
 import android.widget.VideoView
 import com.example.beuon.CourseActivity
 import com.example.beuon.R
+import com.example.beuon.model.CourseModel
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import java.util.concurrent.TimeUnit
 
 
@@ -22,6 +24,8 @@ class CourseFragment : Fragment() {
 
     private lateinit var dashboardViewModel: CourseViewModel
     lateinit var root : View
+    var username : String = ""
+    var data : String = ""
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -29,13 +33,15 @@ class CourseFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
         super.onCreate(savedInstanceState);
+        getDataFromActivity()
+
         dashboardViewModel =
                 ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(CourseViewModel::class.java)
         root = inflater.inflate(R.layout.fragment_courses, container, false)
         val textView: TextView = root.findViewById(R.id.text_username)
-        val data = getArguments()?.getString("username")
+
         dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = data
+            textView.text = username
         })
 
         startVideo()
@@ -46,6 +52,16 @@ class CourseFragment : Fragment() {
             startActivity(intent)
         }
         return root
+    }
+
+    fun getDataFromActivity(){
+        val mapper = jacksonObjectMapper()
+        username = getArguments()?.getString("username").toString()
+        data = getArguments()?.getString("data").toString()
+        if(!data.isNullOrBlank() && !data.isNullOrEmpty() && !data.equals("null")){
+            val value: CourseModel = mapper.readValue(data, CourseModel::class.java)
+            print(value)
+        }
     }
 
     fun startVideo(){
