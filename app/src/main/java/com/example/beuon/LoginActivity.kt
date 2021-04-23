@@ -1,6 +1,5 @@
 package com.example.beuon
 
-import android.app.Activity
 import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
@@ -10,6 +9,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.example.beuon.roleMenu.ui.courses.CourseFragment
+
 
 class LoginActivity : AppCompatActivity() {
 
@@ -26,6 +27,7 @@ class LoginActivity : AppCompatActivity() {
         _passwordText = findViewById(R.id.input_password) as EditText
         _usernameText = findViewById(R.id.input_email) as EditText
         _loginButton!!.setOnClickListener { login() }
+
     }
 
     fun login() {
@@ -59,7 +61,7 @@ class LoginActivity : AppCompatActivity() {
         moveTaskToBack(true)
     }
 
-    fun onLoginSuccess(username : String) {
+    fun onLoginSuccess(username: String) {
         _loginButton!!.isEnabled = true
         val i = Intent(this, MainActivity::class.java)
         i.putExtra("username", username)

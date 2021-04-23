@@ -1,14 +1,18 @@
 package com.example.beuon
 
 import android.app.Activity
+import android.app.DatePickerDialog
 import android.app.ProgressDialog
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import android.widget.*
-import com.example.beuon.roleMenu.ui.TutorMainActivity
+import com.example.beuon.roleMenu.ui.courses.CourseFragment
+import java.text.SimpleDateFormat
+import java.util.*
 
 class CourseActivity : AppCompatActivity() {
 
@@ -33,6 +37,35 @@ class CourseActivity : AppCompatActivity() {
 
         _createBtn!!.setOnClickListener { createCourse() }
 
+        _dateText!!.transformIntoDatePicker(this, "dd/MM/yyyy")
+        _dateText!!.transformIntoDatePicker(this, "dd/MM/yyyy", Date())
+    }
+
+    fun EditText.transformIntoDatePicker(context: Context, format: String, maxDate: Date? = null) {
+        isFocusableInTouchMode = false
+        isClickable = true
+        isFocusable = false
+
+        val myCalendar = Calendar.getInstance()
+        val datePickerOnDataSetListener =
+                DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
+                    myCalendar.set(Calendar.YEAR, year)
+                    myCalendar.set(Calendar.MONTH, monthOfYear)
+                    myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+                    val sdf = SimpleDateFormat(format, Locale.UK)
+                    setText(sdf.format(myCalendar.time))
+                }
+
+        setOnClickListener {
+            DatePickerDialog(
+                    context, datePickerOnDataSetListener, myCalendar
+                    .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                    myCalendar.get(Calendar.DAY_OF_MONTH)
+            ).run {
+                maxDate?.time?.also { datePicker.maxDate = it }
+                show()
+            }
+        }
     }
 
     fun createCourse() {
@@ -66,9 +99,12 @@ class CourseActivity : AppCompatActivity() {
     fun onCreateCourseSuccess() {
         _createBtn!!.isEnabled = true
         setResult(Activity.RESULT_OK, null)
-        finish()
-        startActivity(Intent(this, TutorMainActivity::class.java))
-        finish()
+        val bundle = Bundle()
+        bundle.putString("data", "Data you want to send")
+        val obj = CourseFragment()
+        obj.setArguments(bundle)
+//        startActivity(Intent(getApplicationContext(), CourseFragment::class.java))
+//        finish()
     }
 
 
@@ -124,7 +160,7 @@ class CourseActivity : AppCompatActivity() {
                     }
                 R.id.radio_online ->
                     if (checked) {
-                       type = "online"
+                        type = "online"
                     }
             }
         }

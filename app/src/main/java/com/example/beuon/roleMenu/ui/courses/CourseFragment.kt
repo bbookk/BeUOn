@@ -13,8 +13,8 @@ import android.widget.Button
 import android.widget.MediaController
 import android.widget.TextView
 import android.widget.VideoView
-import com.example.beuon.R
 import com.example.beuon.CourseActivity
+import com.example.beuon.R
 import java.util.concurrent.TimeUnit
 
 
@@ -33,8 +33,9 @@ class CourseFragment : Fragment() {
                 ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(CourseViewModel::class.java)
         root = inflater.inflate(R.layout.fragment_courses, container, false)
         val textView: TextView = root.findViewById(R.id.text_username)
+        val data = getArguments()?.getString("username")
         dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = "tutortest"
+            textView.text = data
         })
 
         startVideo()

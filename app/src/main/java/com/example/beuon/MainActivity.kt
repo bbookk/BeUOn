@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         val i = intent
         username = i.getStringExtra("username")!!
         _usernameText = findViewById(R.id.text_username) as TextView
-        _usernameText!!.setText("Welcome "+username.toString())
+        _usernameText!!.setText("Welcome " + username.toString())
         return username.toString()
     }
 
@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 //            startActivity(i)
 //        }else if(getUsername().equals("tutortest")){
             val i = Intent(this, TutorMainActivity::class.java)
-            i.putExtra("username", username)
+            i.putExtra("username", getUsername())
             startActivity(i)
 //        }else if(getUsername().equals("parenttest")){
 //            val i = Intent(this, MainActivity::class.java)
